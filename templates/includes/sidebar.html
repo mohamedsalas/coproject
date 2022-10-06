@@ -1,0 +1,53 @@
+
+
+    <div class="sidebar" data="blue">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a target="_blank" rel="sponsored noopener noreferrer {% if 'icons' in segment %} active {% endif %}"
+             href="http://127.0.0.1:8000/" class="simple-text logo-mini">
+            <i class=" fa fa-home"></i>
+          </a>
+          <a target="_blank" rel="sponsored noopener noreferrer"
+              class="simple-text logo-normal">
+            Detection COVID 19
+          </a>
+        </div>
+
+        <ul class="nav">
+
+
+
+
+        <li class="{% if 'index' in segment %} active {% endif %}">
+             <a href="{% url 'start_stream' %}" >
+              <i class="tim-icons icon-button-pause"></i>
+              <p>Enregistrement</p>
+            </a>
+
+
+          <li class="{% if 'rtl-support' in segment %} active {% endif %}">
+            <a href="/models">
+              <i class="tim-icons icon-atom"></i>
+              <p>Modèles</p>
+            </a>
+          </li>
+        <li class="{% if 'rtl-support' in segment %} active {% endif %}">
+            <a href="/lesMétriques">
+              <i class="tim-icons icon-book-bookmark"></i>
+              <p>Tableau des métriques</p>
+            </a>
+          </li>
+          </li>
+
+
+
+          <li>
+
+          <li>
+
+
+
+        </ul>
+        
+      </div>
+    </div>

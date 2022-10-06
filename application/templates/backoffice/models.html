@@ -1,0 +1,130 @@
+
+{% extends "base.html" %}
+
+
+
+
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <!-- Navbar Search-->
+        <div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+
+    </div>
+  </div>
+        </div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+
+            </tbody>
+          </table>
+    <!---------------------------------------------------------------------->
+
+                        <div class="col-md-12">
+                            <div class="card-header">
+                                <h4 class="card-title"> modèles : </h4>
+                                <div class="card-body">
+                                    <table class="table tablesorter " id="">
+
+                                        <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'XgboostPred' %}" > Xgboost <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'DecisionTreePred' %}" > Decision Tree <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'SVMPred' %}" > SVM <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'CNNPred' %}" > CNN <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'Resnet50Pred' %}" > Resnet 50 <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+
+
+
+
+
+</form>
+
+              </button>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+       <div class="col-md-12">
+                            <div class="card-header">
+                                <h4 class="card-title"> Réapprentissage des modèles : </h4>
+                                <div class="card-body">
+                                    <table class="table tablesorter " id="">
+
+                                        <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li> <a href="{% url 'reboost' %}" > <i class="pull-right" ></i> Xgboost <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>   <a href="{% url 'reTree' %}" > Decision Tree <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'resvm' %}" > SVM <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'recnn' %}" > CNN <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+                                      <form name="date-range-form" id="date-range-form" method="POST" >
+                                           <li>  <a href="{% url 'reresnet50' %}" > Resnet 50 <i class="tim-icons icon-cloud-download-93" ></i> </a>
+                                        </form>
+                                  </li>
+
+
+
+
+                        {% if messages %}
+                            <ul class="messages" id="messages-list">
+                                {% for message in messages %}
+                                    <div class="alert alert-default"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+</form>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock %}

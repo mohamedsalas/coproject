@@ -1,0 +1,146 @@
+
+{% extends "base.html" %}
+
+
+
+
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title"> Importation de données  <a href="{% url 'aideImportation' %}" > aide <i class="tim-icons " ></i> </a></h4>
+
+ <li class="{% if 'icons' in segment %} active {% endif %}">
+                <a href="{% url 'afficherLog' %}" > historique de chargement  </a>
+
+                   </li>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+
+            <tbody>
+
+
+
+           <!-- Navbar Search-->
+
+                <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="GET">
+                    <div class="input-group">
+                        <input class="form-control" name="imported" type="url" placeholder="chemin du fichier à importer" aria-label="info" aria-describedby="info"  />
+                        <button type="submit" id="cancel-btn" class="btn btn-default"  href="importationDonnees" name="date_filter" >importer</button>
+
+
+                </div>
+
+            </form>
+
+           {% if messages %}
+        <ul class="messages" id="messages-list">
+        {% for message in messages %}
+        <div class="alert alert-success"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+        </ul>
+        {% endif %}
+            </tbody>
+          </table>
+
+
+           <script>
+               function updateProgress(progressBarElement, progressBarMessageElement, progress) {
+                progressBarElement.style.width = progress.percent + "%";
+                progressBarMessageElement.innerHTML = progress.current + ' of ' + progress.total + ' processed.';
+            }
+
+            var trigger = document.getElementById('progress-bar-trigger');
+            trigger.addEventListener('click', function(e) {
+            var bar = document.getElementById("progress-bar");
+            var barMessage = document.getElementById("progress-bar-message");
+            for (var i = 0; i <11; i++) {
+            setTimeout(updateProgress, 500 * i, bar, barMessage, {
+            percent: 10 * i,
+            current: 10 * i,
+            total: 100
+    })
+  }
+})
+           </script>
+
+
+
+
+</form>
+
+
+
+
+
+
+
+ </a>
+
+
+                 <button class="{% if 'icons' in segment %} active {% endif %} pull-left btn btn-default">
+            <a href="/sni">
+              retour
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+                 </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card  card-plain">
+      <div class="card-header">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock %}

@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+
+
+
+
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <!---------------------------------------------------------------------->
+    <div class="row">
+
+            <div class="card ">
+                <div class="card-header">
+                    <table class="table tablesorter " id="">
+
+
+<h4>Les métriques</h4>
+
+            <thead class=" text-primary" >
+
+              <tr>
+                <th>
+                  Accuracy <Train></Train>
+                </th>
+                <th>
+                 Accuracy Test
+                </th>
+                <th>
+                  Accuracy Validation
+                </th>
+                  <th>
+                  Specificity
+                </th>
+                    <th>
+                  Sensetivity
+                </th>
+                       <th>
+                  F1 score
+                </th>
+                      <th>
+                  Nom du modèle
+                </th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+                {% for s in lesMet %}
+                  <tr>
+             <th> {{ s.acc_train }}</th>
+                    <th> {{ s.acc_test }}</th>
+                    <th> {{ s.acc_val }} </th>
+                      <th> {{ s.Specificity}} </th>
+                   <th> {{ s.Sensitivity}} </th>
+                   <th> {{ s.f1_score}} </th>
+                   <th> {{ s.nomMod}} </th>
+                  </tr>
+
+         {% endfor %}
+            </tbody>
+
+</table>
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock %}

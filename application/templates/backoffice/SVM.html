@@ -1,0 +1,93 @@
+
+{% extends "base.html" %}
+
+
+
+
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+    <!---------------------------------------------------------------------->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+
+<h4>SVM</h4>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card ">
+                <div class="card-header">
+                      <h4 class="card-title"> Lancer le réapprentissage :</h4>
+
+          <table class="table tablesorter " id="">
+           <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="GET">
+                    <div class="input-group">
+                        <input class="form-control" name="imported" type="url" placeholder="chemin du fichier " aria-label="info" aria-describedby="info"  />
+                         <input class="form-control" name="importedValidation" type="url" placeholder="chemin du fichier de Validation " aria-label="info" aria-describedby="info"  />
+                        <button type="submit" id="cancel-btn" class="btn btn-default"  href='resvm' name="date_filter" >Retrain</button>
+
+
+
+
+
+                </div>
+
+            </form>
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Accuracy Train
+                </th>
+                <th>
+                 Accuracy Test
+                </th>
+                <th>
+                  Accuracy Validation
+                </th>
+                  <th>
+                  Specificity
+                </th>
+                    <th>
+                  Sensetivity
+                </th>
+                       <th>
+                  F1 score
+                </th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+                {% for s in metriqueDT %}
+                  <tr>
+             <th> {{ s.acc_train }}</th>
+                    <th> {{ s.acc_test }}</th>
+                    <th> {{ s.acc_val }} </th>
+                      <th> {{ s.Specificity}} </th>
+                   <th> {{ s.Sensitivity}} </th>
+                   <th> {{ s.f1_score}} </th>
+                  </tr>
+
+         {% endfor %}
+            </tbody>
+          {% if messages %}
+        <ul class="messages" id="messages-list">
+        {% for message in messages %}
+        <div class="alert alert-success"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+        </ul>
+        {% endif %}
+  <a href="{% url 'remplacersvm' %}" > remplacer <i class="tim-icons" ></i> </a>
+            <a href="{% url 'annulersvm' %}" > annuler <i class="tim-icons" ></i> </a>
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock %}

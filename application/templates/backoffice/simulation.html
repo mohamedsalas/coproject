@@ -1,0 +1,90 @@
+
+{% extends "base.html" %}
+
+
+
+
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+
+        <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+
+<h4>Enregistrement audio</h4>
+          <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="GET">
+              <div class="input-group">
+                  <input class="form-control" name="statut" type="number" placeholder="Entrez la durée de l'enregistrement" aria-label="info" aria-describedby="info"  />
+                         <button type="submit" id="cancel-btn" class="btn btn-default"  href="start_stream" name="date_filter" >Enregistrer</button>
+
+                </div>
+                     </form>
+              {% if messages %}
+        <ul class="messages" id="messages-list">
+        {% for message in messages %}
+        <div class="alert alert-success"{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+        </ul>
+        {% endif %}
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+{% block javascripts %}
+
+
+
+<!-- Specific Page JS goes HERE  -->
+{% endblock javascripts %}
+
+{% endblock %}

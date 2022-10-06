@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+
+
+
+
+
+
+
+{% block title %} UI Tables {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+
+<div class="col-md-12">
+    <div class="card  card-plain">
+      <div class="card-header">
+<H1>Détection Covid-19</H1>
+
+          {% load static %}
+        <img src="{% static "covid.png" %}">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock %}
