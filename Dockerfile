@@ -5,6 +5,10 @@ FROM python:3.10-slim
 ENV PYTHONUNBUFFERED 1
 
 COPY requirements.txt /
+RUN apt-get update \
+&& apt-get upgrade -y \
+&& apt-get install -y \
+&& apt-get -y install apt-utils gcc libpq-dev libsndfile-dev 
 RUN pip install --upgrade pip
 RUN apt-get update
 RUN apt-get install libasound-dev libportaudio2 libportaudiocpp0 portaudio19-dev -y
