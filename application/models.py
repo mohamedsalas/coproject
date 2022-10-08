@@ -3,7 +3,6 @@ from typing import Any
 import dateutil.utils
 import django
 # Create your models here.
-from cloudinary_storage import storage
 
 from django.db import models
 
@@ -108,8 +107,4 @@ class metriques(models.Model):
     nomMod = models.CharField(max_length=25, default='nonIndique')
 
 
-class Record(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    voice_record = models.FileField(
-        upload_to="records", storage=storage.RawMediaCloudinaryStorage())
-    language = models.CharField(max_length=50, null=True, blank=True)
+

@@ -220,7 +220,7 @@ def annulerDtree(request):
 
 
 
-from xgboost import XGBClassifier
+#from xgboost import XGBClassifier
 
 
 def reboost(request):
@@ -250,9 +250,9 @@ def reboost(request):
             X1Validation = X1Validation.drop(To_drop, axis=1)
 
             X_train, X_test, Y_train, Y_test = train_test_split(X1, Y1, train_size=0.8, stratify=Y1)
-            xgb = XGBClassifier(learning_rate=0.1, n_estimators=1000, max_depth=7, min_child_weight=1, gamma=0,
-                                subsample=0.8, colsample_bytree=0.8, reg_alpha=0.005,
-                                objective='binary:logistic', nthread=4, scale_pos_weight=1, seed=27)
+            #xgb = XGBClassifier(learning_rate=0.1, n_estimators=1000, max_depth=7, min_child_weight=1, gamma=0,
+            #                    subsample=0.8, colsample_bytree=0.8, reg_alpha=0.005,
+            #                    objective='binary:logistic', nthread=4, scale_pos_weight=1, seed=27)
             xgb.fit(X_train, Y_train)
             dt_y_pred = xgb.predict(X1Validation)
             cm = confusion_matrix(Y1Validation, dt_y_pred)
@@ -528,7 +528,7 @@ from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPooling2D, Convolut
     GlobalAveragePooling2D
 from keras import losses, models, optimizers
 from keras.activations import relu, softmax
-import tensorflow as tf
+#import tensorflow as tf
 import os
 from keras.utils import to_categorical
 import matplotlib.pyplot as plt
@@ -603,7 +603,7 @@ def recnn(request):
             model.add(GlobalAveragePooling2D())
 
             model.add(Dense(2, activation='softmax'))
-            optimizer = tf.optimizers.Adam(learning_rate)
+            #optimizer = tf.optimizers.Adam(learning_rate)
             model.compile(optimizer=optimizer, loss=losses.binary_crossentropy, metrics=['acc'])
             EPOCHES = 2
             trainY = to_categorical(y)

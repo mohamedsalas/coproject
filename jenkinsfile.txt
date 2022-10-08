@@ -1,0 +1,52 @@
+pipeline{
+/*some changes*/ 
+environment{
+		registry = 'mohamedsalas/coproject'
+		registryCredential= 'Dockerhub'
+		dockerImage = ''
+	}
+    agent any
+    
+    
+    stages {
+        stage('Checkout GIT') {
+            steps {
+                echo 'Pulling...';
+                git branch: 'master', 
+                credentialsId: 'gitt',
+                url:'https://github.com/mohamedsalas/coproject.git ';
+            
+            }
+        }
+        
+        
+        stage('Building our image'){
+			steps{ 
+				script{ 
+					dockerImage= docker.build registry + ":latest" 
+				}
+			}
+		}
+
+		stage('Deploy our image'){
+			steps{ 
+				script{
+					docker.withRegistry( '', registryCredential){
+						dockerImage.push()
+					} 
+				} 
+			}
+		}
+
+ }
+ post{
+		success{
+			emailext body: 'Build success', subject: 'Jenkins', to:'chefimedsss@gmail.com'
+		}
+		failure{
+			emailext body: 'Build failure', subject: 'Jenkins', to:'chefimedsss@gmail.com'
+		}
+
+	}
+ 
+}

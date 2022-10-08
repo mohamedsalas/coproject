@@ -6,6 +6,12 @@ ENV PYTHONUNBUFFERED 1
 
 COPY requirements.txt /
 RUN pip install --upgrade pip
+RUN apt-get update
+RUN apt-get install libasound-dev libportaudio2 libportaudiocpp0 portaudio19-dev -y
+RUN apt-get update && \
+    apt-get -y install gcc mono-mcs && \
+    rm -rf /var/lib/apt/lists/*
+RUN pip install PyAudio==0.2.11
 
 #RUN apt-get update -y && apt-get install -y gcc curl gnupg build-essential
 #RUN apt-get -y install unixodbc unixodbc-dev tdsodbc
@@ -34,7 +40,8 @@ Setup = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so" >> /etc/odbcinst.ini
 
 
 # Install dependencies.
-RUN pip install -r /requirements.txt --ignore-installed
+
+RUN pip install -r /requirements.txt 
 
 
 

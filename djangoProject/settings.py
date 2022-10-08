@@ -17,9 +17,6 @@ from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.core.files import images
 
 from pathlib import Path
-
-import cloudinary
-import cloudinary_storage
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,16 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'application',
-    'cloudinary_storage',
-    'cloudinary',
 
 ]
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": config("CLOUD_NAME", default=""),
-    "API_KEY": config("API_KEY", default=""),
-    "API_SECRET": config("API_SECRET", default=""),
-}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
